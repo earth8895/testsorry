@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ขอโทษนะครับ ❤️</title>
+  <style>
+    /* Reset & base */
+    :root{
+      --bg: #FFF8F9;
+      --card:#ffffff;
+      --accent:#FF6B8A;
+      --accent-2:#FF9AB3;
+      --text:#333;
+      --shadow: 0 6px 24px rgba(99, 57, 84, 0.08);
+      --green: #7BC47F;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, "Sarabun", "Noto Sans Thai", system-ui, -apple-system, Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(180deg,var(--bg),#FFF0F4 60%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      display:flex;align-items:center;justify-content:center;padding:24px;
+    }
+
+    /* Container */
+    .wrap{
+      width:100%;max-width:680px;
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:20px;
+      padding:22px;
+      box-shadow:var(--shadow);
+      text-align:center;
+      position:relative;
+      overflow:visible;
+    }
+
+    h1{
+      font-size:20px;margin:8px 0 14px;color:#3e2330;
+      letter-spacing:0.2px;
+    }
+
+    .apology-line{
+      display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:18px;
+      background: linear-gradient(90deg,#fff0, #fff0);
+      padding:10px 14px;border-radius:14px;
+    }
+
+    /* two hearts between the words */
+    .hearts{
+      display:inline-flex;align-items:center;gap:6px;position:relative;width:72px;justify-content:center;
+    }
+    .heart{
+      width:18px;height:18px;position:relative;transform:scale(1);
+      transform-origin:center center;animation:pop 1.6s infinite ease-in-out;
+    }
+    .heart:nth-child(1){animation-delay:0s}
+    .heart:nth-child(2){animation-delay:0.25s}
+
+    .heart:before, .heart:after{
+      content:"";position:absolute;top:0;left:9px;width:9px;height:14px;background:var(--accent);border-radius:9px 9px 0 0;transform:rotate(-45deg);
+    }
+    .heart:after{left:0;transform:rotate(45deg);background:var(--accent-2)}
+    @keyframes pop{
+      0%{transform:translateY(0) scale(0.92)}
+      50%{transform:translateY(-6px) scale(1.08)}
+      100%{transform:translateY(0) scale(0.92)}
+    }
+
+    p.note{margin:10px 0 18px;color:#6b4b56}
+
+    /* CSS bouquet */
+    .bouquet{
+      width:120px;height:160px;margin:10px auto 18px;position:relative;display:block;
+      transform-origin:center bottom;animation:sway 3.6s ease-in-out infinite;
+    }
+    @keyframes sway{
+      0%{transform:rotate(-3deg)}
+      50%{transform:rotate(3deg)}
+      100%{transform:rotate(-3deg)}
+    }
+
+    /* stems */
+    .stem{
+      position:absolute;left:50%;bottom:20px;width:6px;height:80px;background:linear-gradient(180deg,#6aa96a,#4b8f4b);border-radius:6px;transform:translateX(-50%) rotate(-10deg);
+      box-shadow:inset 0 -6px 8px rgba(0,0,0,0.06);
+    }
+    .stem.stem-2{transform:translateX(-50%) rotate(12deg);left:52%;height:84px}
+
+    /* wrap (ribbon) */
+    .wraper{
+      position:absolute;left:50%;bottom:6px;transform:translateX(-50%);
+      width:74px;height:60px;border-radius:8px;overflow:visible;
+    }
+    .ribbon{
+      position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+      width:86px;height:44px;background:linear-gradient(135deg,#ff8aa3,#ff5f86);
+      clip-path:polygon(0 20%,100% 0,100% 70%,0 100%);
+      border-radius:8px;box-shadow:0 6px 18px rgba(255,100,140,0.12);
+    }
+    .ribbon:before, .ribbon:after{
+      content:"";position:absolute;width:18px;height:26px;border-radius:6px;background:inherit;bottom:8px;z-index:0;transform-origin:top center;
+    }
+    .ribbon:before{left:-12px;transform:rotate(-18deg)}
+    .ribbon:after{right:-12px;transform:rotate(18deg)}
+
+    /* flowers */
+    .flower{
+      position:absolute;top:8px;left:50%;transform:translateX(-50%);width:86px;height:86px;
+    }
+    .petal{
+      --size:32px;
+      width:var(--size);height:var(--size);border-radius:50% 50% 50% 0;position:absolute;left:50%;top:50%;transform-origin:0 50%;background:linear-gradient(180deg,#FF8BAA,#FF608A);
+      box-shadow:0 6px 14px rgba(255,96,138,0.14);
+    }
+    .petal.p1{transform:translate(-50%,-50%) rotate(0deg) translateX(18px)}
+    .petal.p2{transform:translate(-50%,-50%) rotate(72deg) translateX(18px);background:linear-gradient(180deg,#FF9DB9,#FF6A93)}
+    .petal.p3{transform:translate(-50%,-50%) rotate(144deg) translateX(18px)}
+    .petal.p4{transform:translate(-50%,-50%) rotate(216deg) translateX(18px);background:linear-gradient(180deg,#FFB1C6,#FF84A8)}
+    .petal.p5{transform:translate(-50%,-50%) rotate(288deg) translateX(18px)}
+
+    .center{
+      position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 40% 30%,#FFF9D9,#FFD46E);box-shadow:inset 0 -3px 6px rgba(0,0,0,0.05);
+    }
+
+    /* small leaves */
+    .leaf{
+      position:absolute;width:36px;height:18px;border-radius:18px;background:linear-gradient(180deg,#9BD89E,#67B06F);bottom:46px;left:8px;transform:rotate(-28deg);box-shadow:0 6px 12px rgba(80,150,90,0.08);
+    }
+    .leaf.l2{left:auto;right:8px;transform:rotate(26deg)}
+
+    /* message box */
+    .message{
+      margin-top:6px;padding:14px;border-radius:12px;background:linear-gradient(180deg,#fff,#fff);box-shadow:inset 0 1px 0 rgba(255,255,255,0.7);
+      font-size:15px;color:#4a2b36;line-height:1.45;min-height:58px;
+    }
+
+    /* buttons */
+    .actions{display:flex;gap:10px;justify-content:center;margin-top:14px}
+    .btn{padding:10px 14px;border-radius:12px;border:0;background:var(--accent);color:white;font-weight:600;box-shadow:0 8px 20px rgba(255,100,140,0.12);cursor:pointer}
+    .btn.secondary{background:transparent;color:var(--accent);border:2px solid rgba(255,100,140,0.14)}
+
+    /* responsive tweaks */
+    @media(min-width:520px){
+      h1{font-size:22px}
+      .apology-line{font-size:20px}
+      .bouquet{width:150px;height:190px}
+    }
+
+    /* subtle confetti burst */
+    .confetti{position:absolute;left:50%;top:-28px;transform:translateX(-50%);pointer-events:none}
+    .confetti i{position:absolute;display:block;width:8px;height:8px;border-radius:2px;opacity:0;animation:burst 1.6s ease-out forwards}
+    @keyframes burst{
+      0%{transform:translateY(0) rotate(0);opacity:1}
+      100%{transform:translateY(-120px) translateX(var(--tx)) rotate(240deg);opacity:0}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="card">
+      <div class="confetti" id="confetti"></div>
+      <h1>ขอโทษนะครับ</h1>
+
+      <div class="apology-line">
+        ขอโทษ
+        <span class="hearts" aria-hidden="true">
+          <span class="heart"></span>
+          <span class="heart"></span>
+        </span>
+        นะครับ
+      </div>
+
+      <p class="note">ขอโทษนะครับ 💕</p>     
+
+      <!-- Bouquet (CSS made) -->
+      <div class="bouquet" aria-hidden="true">
+        <div class="stem"></div>
+        <div class="stem stem-2"></div>
+
+        <div class="flower" style="transform:translateX(-50%) scale(0.95)">
+          <div class="petal p1"></div>
+          <div class="petal p2"></div>
+          <div class="petal p3"></div>
+          <div class="petal p4"></div>
+          <div class="petal p5"></div>
+          <div class="center"></div>
+        </div>
+
+        <div class="leaf"></div>
+        <div class="leaf l2"></div>
+
+        <div class="wraper">
+          <div class="ribbon"></div>
+        </div>
+      </div>
+
+      <div class="message" id="message">ผิดไปเเล้วค้าบบ ขอโทษค้าบบ ดีกานนะคั้บบ ง้อๆค้าบบ</div>
+
+    </div>
+  </div>
+
+  <script>
+    // confetti generator
+    function spawnConfetti(){
+      const wrap = document.getElementById('confetti');
+      wrap.innerHTML='';
+      for(let i=0;i<18;i++){
+        const el = document.createElement('i');
+        const tx = (Math.random()*200-100).toFixed(0)+'px';
+        el.style.setProperty('--tx', tx);
+        el.style.left = (50 + Math.random()*80-40)+'px';
+        el.style.background = ['#FF5F86','#FFD46E','#9BD89E','#8BC4FF'][Math.floor(Math.random()*4)];
+        el.style.transform = 'translateY(0)';
+        wrap.appendChild(el);
+      }
+    }
+
+    // send heart button animation
+    document.getElementById('sendHeart').addEventListener('click', ()=>{
+      // quick pulse on hearts
+      const hearts = document.querySelectorAll('.heart');
+      hearts.forEach((h,i)=>{
+        h.animate([
+          {transform:'scale(1)'},
+          {transform:'scale(1.5)'},
+          {transform:'scale(1)'}
+        ],{duration:520, easing:'ease-out', delay:i*80})
+      })
+      spawnConfetti();
+    })
+
+    // editable message
+    document.getElementById('editMsg').addEventListener('click', ()=>{
+      const msg = document.getElementById('message');
+      const current = msg.textContent.trim();
+      const newMsg = prompt('แก้ไขข้อความขอโทษของคุณ:', current);
+      if(newMsg!==null){
+        msg.textContent = newMsg;
+      }
+    })
+
+    // make the page feel like an app on mobile (tap to focus)
+    document.body.addEventListener('touchstart', ()=>{}, {passive:true});
+  </script>
+</body>
+</html>
